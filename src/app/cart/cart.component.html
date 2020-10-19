@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-edit-cart></app-edit-cart>
+    <hr>
+    <div class="row">
+      <div class="col-xs-6">
+        <p>Item</p>
+      </div>
+      <div class="col-xs-3">
+        <p>Price</p>
+      </div>
+      <div class="col-xs-3">
+        <p>Amount</p>
+      </div>
+
+    </div>
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let cartItem of cartItems; let i = index"
+        (click)="onEditItem(i)"
+      >
+        <div class="row">
+          <div class="col-xs-6">
+            <p>{{cartItem.name}}</p>
+          </div>
+          <div class="col-xs-3">
+            <p>{{cartItem.price * cartItem.amount}}</p>
+          </div>
+          <div class="col-xs-3">
+            <p>{{cartItem.amount}}</p>
+          </div>
+
+        </div>
+      </a>
+    </ul>
+    <button class="btn btn-success"
+    (click)="onCheckOut()"
+    [disabled]=" !this.userIsLogged "
+    >
+      Check out
+    </button>
+    <p *ngIf="!userIsLogged" class="text-danger">please login to checkout</p>
+  </div>
+</div>

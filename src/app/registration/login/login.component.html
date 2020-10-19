@@ -1,0 +1,34 @@
+<form (ngSubmit)="onSubmit(flog)" #flog="ngForm">
+  <div class="row">
+    <div class="col-sm-12 form-group">
+      <label for="name">User name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        name="name"
+        ngModel
+        required
+      >
+    </div>
+
+    <div class="col-sm-12 form-group">
+      <label for="password">password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        name="password"
+        ngModel
+        required
+      >
+    </div>
+  </div>
+    <div class="col-sm-12">
+      <button
+        class="btn btn-success"
+        type="submit"
+        [disabled]="!flog.valid">{{ loginMode ? 'Logout' : 'login' }}</button>
+    </div>
+
+</form>
